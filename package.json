@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/gergelyke/restify-formatter-jsonp/issues"
   },
-  "homepage": "https://github.com/gergelyke/restify-formatter-jsonp"
+  "homepage": "https://github.com/gergelyke/restify-formatter-jsonp",
+  "devDependencies": {
+    "mocha": "^1.17.1",
+    "chai": "^1.9.0",
+    "istanbul": "^0.2.6"
+  }
 }
