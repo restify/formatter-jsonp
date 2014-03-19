@@ -126,3 +126,4 @@ describe('JSONP formatter', function () {
     });
   });
 });
+
