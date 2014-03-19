@@ -1,39 +1,51 @@
+'use strict';
 // Copyright 2012 Mark Cavage, Inc.  All rights reserved.
 
+function formatJSONP(request, response, body) {
+  var formattedResponse;
+  try {
+    formattedResponse = formatResponse(request, body);
+  } catch (e) {
+    formattedResponse = null;
+  }
+  setContentLength(formattedResponse, response);
+  return formattedResponse;
+}
 
-///--- Exports
+function formatResponse(request, body) {
+  body = validateBody(body);
+  return wrapJSONP(request, body);
+}
 
-function formatJSONP(req, res, body) {
-  var jsonp_callback;
-  var data;
+function validateBody(body) {
   if (!body) {
-    res.setHeader('Content-Length', 0);
-    return (null);
+    throw new Error('body is null');
   }
+  body = body instanceof Error ? error2body(body) : body;
+  body = Buffer.isBuffer(body) ? body.toString('base64') : body;
+  return body;
+}
 
-  if (body instanceof Error) {
-    if ((body.restCode || body.httpCode) && body.body) {
-      body = body.body;
-    } else {
-      body = {
-        message: body.message
-      };
-    }
-  }
+function error2body(body) {
+  return ((body.restCode || body.httpCode) && body.body) ?
+    body.body :
+    {
+      message: body.message
+    };
+}
 
-  if (Buffer.isBuffer(body)) {
-    body = body.toString('base64');
-  }
+function wrapJSONP(req, body) {
+  var jsonpCallback;
+  body = JSON.stringify(body);
+  jsonpCallback = req.query.callback || req.query.jsonp;
+  return jsonpCallback ?
+    jsonpCallback + '(' + body + ');' : body;
+}
 
-  jsonp_callback = req.query.callback || req.query.jsonp;
-  if (jsonp_callback) {
-    data = jsonp_callback + '(' + JSON.stringify(body) + ');';
-  } else {
-    data = JSON.stringify(body);
-  }
-
-  res.setHeader('Content-Length', Buffer.byteLength(data));
-  return (data);
+function setContentLength(data, response) {
+  var length = data ? Buffer.byteLength(data) : 0;
+  response.setHeader('Content-Length', length);
 }
 
 module.exports = formatJSONP;
+
