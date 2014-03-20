@@ -4,19 +4,22 @@
   "description": "restify-formatter-jsonp",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter spec test.js",
-    "cover": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test.js -- -u exports -R spec"
+    "test": "./node_modules/mocha/bin/mocha --reporter spec test/test.js",
+    "cover": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/test.js -- -u exports -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gergelyke/restify-formatter-jsonp.git"
+    "url": "https://github.com/restify/formatter-jsonp.git"
   },
-  "author": "Gergely Nemeth <mail@nemethgergely.com> (http://twitter.com/nthgergo)",
+  "author": "Gergely Nemeth",
+  "contributors": [
+    "Tamas Kokeny"
+  ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gergelyke/restify-formatter-jsonp/issues"
+    "url": "https://github.com/restify/formatter-jsonp/issues"
   },
-  "homepage": "https://github.com/gergelyke/restify-formatter-jsonp",
+  "homepage": "https://github.com/restify/formatter-jsonp",
   "devDependencies": {
     "mocha": "^1.17.1",
     "chai": "^1.9.0",

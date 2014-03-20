@@ -1,8 +1,6 @@
 'use strict';
 
-var formatter = require('./');
-var chai = require('chai');
-var expect = chai.expect;
+var formatter = require('../.');
 
 chai.use(function(_chai, utils) {
   function applyFormatter(assertionThis, responseMock) {
