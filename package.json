@@ -4,8 +4,8 @@
   "description": "restify-formatter-jsonp",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter spec test.js",
-    "cover": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test.js -- -u exports -R spec"
+    "test": "./node_modules/mocha/bin/mocha --reporter spec test/test.js",
+    "cover": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/test.js -- -u exports -R spec"
   },
   "repository": {
     "type": "git",
