@@ -1,6 +1,6 @@
 formatter-jsonp
 ===============
-[![Build Status](https://travis-ci.org/restify/formatter-jsonp.svg?branch=refactor/mochaopts)](https://travis-ci.org/restify/formatter-jsonp)
+[![Build Status](https://travis-ci.org/restify/formatter-jsonp.svg)](https://travis-ci.org/restify/formatter-jsonp)
 
 Installation
 ============
