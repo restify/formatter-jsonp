@@ -1,3 +1,11 @@
+# Deprecated!
+
+This now lives in the main restify repository. To use the restify formatters, please use:
+
+```js
+require('restify').formatters
+```
+
 formatter-jsonp
 ===============
 [![Build Status](https://travis-ci.org/restify/formatter-jsonp.svg)](https://travis-ci.org/restify/formatter-jsonp)
